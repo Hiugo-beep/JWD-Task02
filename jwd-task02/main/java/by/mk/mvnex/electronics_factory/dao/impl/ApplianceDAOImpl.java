@@ -30,7 +30,7 @@ public class ApplianceDAOImpl implements ApplianceDAO{
 		HashMap<String, Object> mapParametrs = applianceParametr.getMapParametr();
 		
 		ApplianceFactory applianceFactory = new ApplianceFactory();
-		List<Appliance> appliances = applianceFactory.create(filtredApplianceData);
+		List<Appliance> appliances = applianceFactory.create(criteria.getGroupSearchName(), mapParametrs);
 		
 		return appliances;
 
@@ -38,9 +38,8 @@ public class ApplianceDAOImpl implements ApplianceDAO{
 
 }
 
-interface ApplianceCommonReader	{
-		public void readApplianceFile();
-	}
+
+
 class ApplianceReader implements ApplianceCommonReader {
 	private List<String> file;
 	
